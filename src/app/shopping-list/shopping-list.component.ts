@@ -8,9 +8,12 @@ import { Ingredient } from '../shared/ingredient.model.ts';
 })
 export class ShoppingListComponent {
   ingredients: Ingredient[] = [
-    new Ingredient('Apple', 10),
-    new Ingredient('Tomato', 5),
-    new Ingredient('Orange', 15),
-    new Ingredient('Melon', 25),
+    new Ingredient(1,'Apple', 10),
+    new Ingredient(2,'Tomato', 5),
+    new Ingredient(3,'Orange', 15),
+    new Ingredient(4,'Melon', 25),
   ];
+  trackByFn = (item : any) => {
+    return item.id
+  }
 }

@@ -7,9 +7,9 @@
         href="#"
         class="list-group-item"
         style="cursor: pointer"
-        *ngFor="let item of ingredients; index as i"
+        *ngFor="let item of ingredients; index as i; trackBy: trackByFn"
       >
-        {{ item.name }} {{ item.amount }}
+        {{ item.id }}. {{ item.name }} {{ item.amount }}
       </a>
     </ul>
   </div>
