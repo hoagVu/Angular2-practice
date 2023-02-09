@@ -1,0 +1,15 @@
+<div class="card border bg-light">
+  <div class="card-body">
+    <div class="card-title">{{ element.name }}</div>
+    <div class="card-subtitle">
+      <strong
+        *ngIf="element.type === 'server'; else elseBlock"
+        style="color: red"
+        >{{ element.content }}</strong
+      >
+      <ng-template #elseBlock>
+        <em style="color: blue">{{ element.content }}</em></ng-template
+      >
+    </div>
+  </div>
+</div>
