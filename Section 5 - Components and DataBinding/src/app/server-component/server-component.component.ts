@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, SimpleChanges } from '@angular/core';
 
 @Component({
   selector: 'app-server-component',
@@ -11,5 +11,15 @@ export class ServerComponentComponent implements OnInit {
 
   constructor() {}
 
-  ngOnInit() {}
+  ngOnInit() { }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    //Called before any other lifecycle hook. Use it to inject dependencies, but avoid any serious work here.
+    //Add '${implements OnChanges}' to the class.
+
+    console.log(changes);
+    console.log('element', this.element);
+
+  }
+
 }

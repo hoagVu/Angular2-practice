@@ -2,12 +2,7 @@
   <div class="col-xs-12">
     <p>Add new Servers or blueprints!</p>
     <label>Server Name</label>
-    <input
-      type="text"
-      class="form-control"
-      [(ngModel)]="newServerName"
-      (ngModelChange)="getarea($event)"
-    />
+    <input type="text" class="form-control" [(ngModel)]="newServerName" />
     <label>Server Content</label>
     <input type="text" class="form-control" [(ngModel)]="newServerContent" />
     <br />
@@ -18,8 +13,15 @@
     >
       Add Server
     </button>
-    <button class="btn btn-primary" (click)="onAddBlueprint()">
+    <button
+      class="btn btn-primary"
+      (click)="onAddBlueprint()"
+      style="margin-right: 8px"
+    >
       Add Server Blueprint
+    </button>
+    <button class="btn btn-primary" (click)="this.serverReseted.emit()">
+      Reset Server Value
     </button>
   </div>
 </div>

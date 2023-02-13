@@ -1,5 +1,9 @@
 <div class="container">
-  <app-cockfit></app-cockfit>
+  <app-cockfit
+    (serverAdded)="onServerAdded($event)"
+    (blueprintAdded)="onBlueprintAdded($event)"
+    (serverReseted)="onResetServer()"
+  ></app-cockfit>
   <hr />
   <div class="row">
     <app-server-component

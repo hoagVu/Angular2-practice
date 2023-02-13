@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-cockfit',
@@ -8,27 +8,31 @@ import { Component, OnInit } from '@angular/core';
 export class CockfitComponent implements OnInit {
   public newServerName = '';
   public newServerContent = '';
+  @Output() serverAdded = new EventEmitter<{ name: string; content: string }>();
+  @Output() blueprintAdded = new EventEmitter<{
+    name: string;
+    content: string;
+  }>();
+
+  @Output() serverReseted = new EventEmitter();
 
   constructor() {}
 
   ngOnInit() {}
 
   public onAddServer() {
-    // this.serverElements.push({
-    //   type: 'server',
-    //   name: this.newServerName,
-    //   content: this.newServerContent,
-    // });
+    this.serverAdded.emit({
+      name: this.newServerName,
+      content: this.newServerContent,
+    });
   }
 
   public onAddBlueprint() {
-    // this.serverElements.push({
-    //   type: 'blueprint',
-    //   name: this.newServerName,
-    //   content: this.newServerContent,
-    // });
+    this.blueprintAdded.emit({
+      name: this.newServerName,
+      content: this.newServerContent,
+    });
   }
-  public getarea(event: any) {
-    console.log(event);
-  }
+
+
 }
