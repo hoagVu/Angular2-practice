@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-cockfit',
@@ -16,6 +16,8 @@ export class CockfitComponent implements OnInit {
 
   @Output() serverReseted = new EventEmitter();
 
+  @ViewChild('serverContentInput') serverContentInput : any;
+
   constructor() {}
 
   ngOnInit() {}
@@ -23,14 +25,14 @@ export class CockfitComponent implements OnInit {
   public onAddServer(nameInput: HTMLInputElement) {
     this.serverAdded.emit({
       name: nameInput.value,
-      content: this.newServerContent,
+      content: this.serverContentInput.nativeElement.value,
     });
   }
 
   public onAddBlueprint(nameInput: HTMLInputElement) {
     this.blueprintAdded.emit({
       name: nameInput.value,
-      content: this.newServerContent,
+      content: this.serverContentInput.nativeElement.value,
     });
   }
 }
