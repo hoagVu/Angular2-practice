@@ -11,17 +11,15 @@
       [srvElement]="item"
     >
       <app-card>
-        <span cardTitle>{{ item.name }}</span>
-        <span cardSubtitle>
-          <strong
-            *ngIf="item.type === 'server'; else elseBlock"
-            style="color: red"
-            >{{ item.content }}</strong
-          >
+        <div cardTitle>{{ item.name }}</div>
+        <div cardSubtitle>
+          <ng-container *ngIf="item.type === 'server'; else elseBlock">
+            <strong style="color: red">{{ item.content }}</strong>
+          </ng-container>
           <ng-template #elseBlock>
             <em style="color: blue">{{ item.content }}</em></ng-template
           >
-        </span>
+        </div>
       </app-card>
     </app-server-component>
   </div>
