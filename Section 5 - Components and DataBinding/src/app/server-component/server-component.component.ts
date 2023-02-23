@@ -1,9 +1,10 @@
-import { Component, Input, OnInit, SimpleChanges } from '@angular/core';
+import { Component, Input, OnInit, SimpleChanges, ViewEncapsulation } from '@angular/core';
 
 @Component({
   selector: 'app-server-component',
   templateUrl: './server-component.component.html',
   styleUrls: ['./server-component.component.css'],
+  encapsulation: ViewEncapsulation.None,
 })
 export class ServerComponentComponent implements OnInit {
   @Input('srvElement')
@@ -11,7 +12,7 @@ export class ServerComponentComponent implements OnInit {
 
   constructor() {}
 
-  ngOnInit() { }
+  ngOnInit() {}
 
   ngOnChanges(changes: SimpleChanges): void {
     //Called before any other lifecycle hook. Use it to inject dependencies, but avoid any serious work here.
@@ -19,7 +20,5 @@ export class ServerComponentComponent implements OnInit {
 
     console.log(changes);
     console.log('element', this.element);
-
   }
-
 }

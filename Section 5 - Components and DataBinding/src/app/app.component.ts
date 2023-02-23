@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ViewEncapsulation } from '@angular/core';
 
 const defaultServer = [
   { type: 'server', name: 'Test', content: 'This is a test!' },
@@ -8,6 +8,7 @@ const defaultServer = [
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
+  encapsulation: ViewEncapsulation.None
 })
 export class AppComponent {
   serverElements: { type: string; name: string; content: string }[] = [
@@ -15,19 +16,23 @@ export class AppComponent {
   ];
 
   onServerAdded(value: { name: string; content: string }) {
-    this.serverElements.push({
-      type: 'server',
-      name: value.name || '',
-      content: value.content || '',
-    });
+    if (value.name && value.content) {
+      this.serverElements.push({
+        type: 'server',
+        name: value.name || '',
+        content: value.content || '',
+      });
+    }
   }
 
   onBlueprintAdded(value: { name: string; content: string }) {
-    this.serverElements.push({
-      type: 'blueprint',
-      name: value.name || '',
-      content: value.content || '',
-    });
+    if (value.name && value.content) {
+      this.serverElements.push({
+        type: 'blueprint',
+        name: value.name || '',
+        content: value.content || '',
+      });
+    }
   }
   onResetServer() {
     this.serverElements = defaultServer;

@@ -6,7 +6,7 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
   styleUrls: ['./cockfit.component.css'],
 })
 export class CockfitComponent implements OnInit {
-  public newServerName = '';
+  // public newServerName = '';
   public newServerContent = '';
   @Output() serverAdded = new EventEmitter<{ name: string; content: string }>();
   @Output() blueprintAdded = new EventEmitter<{
@@ -20,19 +20,17 @@ export class CockfitComponent implements OnInit {
 
   ngOnInit() {}
 
-  public onAddServer() {
+  public onAddServer(nameInput: HTMLInputElement) {
     this.serverAdded.emit({
-      name: this.newServerName,
+      name: nameInput.value,
       content: this.newServerContent,
     });
   }
 
-  public onAddBlueprint() {
+  public onAddBlueprint(nameInput: HTMLInputElement) {
     this.blueprintAdded.emit({
-      name: this.newServerName,
+      name: nameInput.value,
       content: this.newServerContent,
     });
   }
-
-
 }
